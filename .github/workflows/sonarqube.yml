@@ -24,7 +24,7 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v6
         with:
           args: >-
-            -Dsonar.projectBaseDir=Day-02-Sonar+GitHub Actions
+            -Dsonar.projectBaseDir="Day-02-Sonar+GitHub Actions"
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
