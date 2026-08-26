@@ -28,10 +28,13 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
+      - name: Prepare Quality Gate Report
+        run: |
+          mkdir -p .scannerwork
+          cp "Day-02-Sonar+GitHub Actions/.scannerwork/report-task.txt" .scannerwork/report-task.txt
+
       - name: Check Quality Gate
         uses: SonarSource/sonarqube-quality-gate-action@v1
-        with:
-          scanMetadataReportFile: Day-02-Sonar+GitHub Actions/.scannerwork/report-task.txt
         timeout-minutes: 5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
