@@ -1,0 +1,9 @@
+{
+  "name": "day-02-sonarqube",
+  "version": "1.0.0",
+  "description": "SonarQube GitHub Actions CI/CD integration",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  }
+}
