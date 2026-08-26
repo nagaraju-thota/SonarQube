@@ -8,15 +8,15 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispatch:
-    
+  workflow_dispatch: 
 
 jobs:
   sonarqube:
-    name: SonarQube Analysis
+    name: SonarQube Code Quality
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
@@ -25,19 +25,19 @@ jobs:
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
         with:
-          projectBaseDir: Day-02-Sonar+GitHub Actions
+          projectBaseDir: "Day-02-Sonar+GitHub Actions"
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
-      - name: Prepare Quality Gate Report
-        run: |
-          mkdir -p .scannerwork
-          cp "Day-02-Sonar+GitHub Actions/.scannerwork/report-task.txt" .scannerwork/report-task.txt
-
-      - name: Check Quality Gate
+      - name: SonarQube Quality Gate Check
+        id: quality-gate
         uses: SonarSource/sonarqube-quality-gate-action@v1
         timeout-minutes: 5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+      - name: Display Quality Gate Status
+        run: |
+          echo "Quality Gate Status: ${{ steps.quality-gate.outputs.quality-gate-status }}"
