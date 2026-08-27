@@ -23,6 +23,8 @@ jobs:
 
       - name: Quality Gate Check
         uses: SonarSource/sonarqube-quality-gate-action@master
+        with:
+          scanMetadataReportFile: Day-03-Quality-Gates/.scannerwork/report-task.txt
         timeout-minutes: 5
         env:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
