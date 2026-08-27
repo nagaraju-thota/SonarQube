@@ -1,0 +1,8 @@
+{
+  "name": "day-03-quality-gates",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"no tests yet\""
+  }
+}
