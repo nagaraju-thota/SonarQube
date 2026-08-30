@@ -21,7 +21,7 @@ function unusedRiskyFunction(x) {
 
 // existing code above...
 
-const password = "admin123";
+var password = "admin123";
 let unusedVar = 42;
 
 // rest of your existing app.js code
