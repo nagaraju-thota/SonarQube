@@ -3,7 +3,7 @@ name: Day 6 - SonarQube Advanced Config
 on:
   pull_request:
     branches:
-      - development
+      - dev
     types: [opened, synchronize, reopened]
     paths:
       - 'Day-05-Advanced-SonarQube-Configuration/**'
